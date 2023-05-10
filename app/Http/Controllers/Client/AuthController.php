@@ -106,6 +106,10 @@ class AuthController extends Controller
                     'email' => $request->email,
                 ]);
 
+                $cart = new Cart;
+                $cart -> user_id = $user->id;
+                $cart->save();
+
                 return response()->json([
                     'status' => true,
                     'message' => 'Success registration',

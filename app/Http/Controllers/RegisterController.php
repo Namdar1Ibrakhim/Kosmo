@@ -26,7 +26,7 @@ class RegisterController extends Controller
         $user = User::create($validateFields);
         if($user){
             Auth::login($user);
-            return redirect(route('user.login'));
+            return redirect('home');
         }
 
         return redirect(route('user.registration'))->withErrors([

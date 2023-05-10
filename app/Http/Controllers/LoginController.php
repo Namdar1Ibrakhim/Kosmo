@@ -9,9 +9,9 @@ class LoginController extends Controller
 {
     public function login(Request $request){
         $formFields = $request->only(['email', 'password']);
-        
+
         if(Auth::attempt($formFields)){
-            return redirect()->intended(route('user.private'));  
+            return redirect('home');
         }
 
         return redirect(route('user.login'))->withErrors([
